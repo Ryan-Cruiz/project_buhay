@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://4oltqtnmr0ei"]
+
+[ext_resource type="Script" uid="uid://xbjemrqxilb8" path="res://scripts/door.gd" id="1_ba8gm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0saw3"]
+radius = 28.01785
+
+[sub_resource type="LabelSettings" id="LabelSettings_jd813"]
+font_size = 10
+
+[node name="Door" type="Area2D" unique_id=539294555]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ba8gm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891544549]
+shape = SubResource("CircleShape2D_0saw3")
+
+[node name="Label" type="Label" parent="." unique_id=17896232]
+offset_left = -18.0
+offset_top = -31.0
+offset_right = 58.0
+offset_bottom = -17.0
+scale = Vector2(0.5, 0.5)
+text = "Press E to enter"
+label_settings = SubResource("LabelSettings_jd813")
+
+[node name="Spawn" type="Marker2D" parent="." unique_id=1951508631]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cov7gibig7oni"]
+
+[ext_resource type="Script" uid="uid://d22entde5eiuh" path="res://scripts/main.gd" id="1_m1504"]
+[ext_resource type="PackedScene" uid="uid://db4i7l7joac33" path="res://components/player.tscn" id="2_ifaiv"]
+[ext_resource type="PackedScene" uid="uid://bs34g2gto8bek" path="res://levels/building.tscn" id="3_5k4jt"]
+[ext_resource type="PackedScene" uid="uid://4oltqtnmr0ei" path="res://components/door.tscn" id="4_qy63d"]
+[ext_resource type="PackedScene" uid="uid://dw45umtiqcfwv" path="res://components/npc.tscn" id="5_ifaiv"]
+
+[node name="World" type="Node2D" unique_id=52091825]
+y_sort_enabled = true
+script = ExtResource("1_m1504")
+
+[node name="Player" parent="." unique_id=756416 instance=ExtResource("2_ifaiv")]
+platform_floor_layers = 4294967043
+platform_wall_layers = 3
+
+[node name="StartPosition" type="Marker2D" parent="." unique_id=35532835]
+position = Vector2(450, 100)
+
+[node name="environment" parent="." unique_id=482954108 instance=ExtResource("3_5k4jt")]
+
+[node name="Doors" type="Node" parent="." unique_id=552073933]
+
+[node name="indoor2" parent="Doors" unique_id=1365603539 instance=ExtResource("4_qy63d")]
+position = Vector2(566, 95)
+scenePath = "indoor2"
+position_x = 4
+position_y = 1
+
+[node name="indoor" parent="Doors" unique_id=1940799113 instance=ExtResource("4_qy63d")]
+position = Vector2(280, 103)
+scenePath = "indoor"
+position_x = 2
+position_y = 1
+
+[node name="Button2" type="Button" parent="." unique_id=532460579]
+offset_left = 66.0
+offset_top = 76.0
+offset_right = 156.0
+offset_bottom = 107.0
+text = "load  game"
+
+[node name="Button" type="Button" parent="." unique_id=1375373849]
+offset_left = 67.0
+offset_top = 36.0
+offset_right = 157.0
+offset_bottom = 67.0
+text = "save game"
+
+[node name="npc" parent="." unique_id=1800830762 groups=["npcs"] instance=ExtResource("5_ifaiv")]
+unique_name_in_owner = true
+position = Vector2(479, 115)
+
+[node name="npc2" parent="." unique_id=1958931379 groups=["npcs"] instance=ExtResource("5_ifaiv")]
+unique_name_in_owner = true
+position = Vector2(289, 219)
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

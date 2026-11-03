@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjh8flb2d25an"]
+
+[ext_resource type="Script" uid="uid://ml5sm16ey432" path="res://scripts/indoor_scene.gd" id="1_v7oas"]
+[ext_resource type="PackedScene" uid="uid://4oltqtnmr0ei" path="res://components/door.tscn" id="2_yneti"]
+[ext_resource type="PackedScene" uid="uid://db4i7l7joac33" path="res://components/player.tscn" id="3_ed5l0"]
+
+[node name="indoor" type="Node2D"]
+script = ExtResource("1_v7oas")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 406.0
+offset_top = 255.0
+offset_right = 506.0
+offset_bottom = 278.0
+text = "indoor scene"
+
+[node name="door" parent="." instance=ExtResource("2_yneti")]
+position = Vector2(455, 263)
+scenePath = "world"
+
+[node name="Player" parent="." instance=ExtResource("3_ed5l0")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(455, 230)
+
+[editable path="door"]

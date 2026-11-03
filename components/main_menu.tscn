@@ -1,0 +1,216 @@
+[gd_scene load_steps=14 format=3 uid="uid://uedc8dja43vw"]
+
+[ext_resource type="Texture2D" uid="uid://ntcb6jyko6rm" path="res://assets/bg.png" id="1_vmbys"]
+[ext_resource type="Script" uid="uid://bo2ccl8rdh7wh" path="res://scripts/main_menu.gd" id="1_wdogw"]
+[ext_resource type="Script" uid="uid://d0ujb8i2v7bgn" path="res://music_control.gd" id="3_bx5kc"]
+[ext_resource type="AudioStream" uid="uid://by0cdf57n4ivt" path="res://assets/moonlight_sonata.mp3" id="3_uw3gq"]
+[ext_resource type="Script" uid="uid://bn6k2fu27uf03" path="res://scripts/full_screen.gd" id="4_r7yfp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wdogw"]
+texture = ExtResource("1_vmbys")
+modulate_color = Color(0.340024, 0.484873, 0.533482, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmbys"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmbys"]
+bg_color = Color(0.201217, 0.806266, 0.847135, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 10
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdogw"]
+bg_color = Color(0.148716, 0.676883, 0.714397, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 10
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 10
+shadow_size = 1
+shadow_offset = Vector2(4, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw3gq"]
+bg_color = Color(0.148716, 0.676883, 0.714397, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 10
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 10
+shadow_size = 1
+shadow_offset = Vector2(4, 5)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wdogw"]
+color = Color(0.969137, 0.969137, 0.969137, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uw3gq"]
+color = Color(0.923423, 0.485579, 0.327145, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bx5kc"]
+color = Color(0.923423, 0.485579, 0.327145, 1)
+thickness = 6
+
+[node name="main_menu" type="CanvasLayer"]
+script = ExtResource("1_wdogw")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wdogw")
+
+[node name="title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -113.5
+offset_right = 62.5
+offset_bottom = -90.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+text = "PROJECT BUHAY"
+
+[node name="main_buttons" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.5
+offset_top = -262.0
+offset_right = 143.5
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="start_game" type="Button" parent="main_buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmbys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vmbys")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wdogw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uw3gq")
+text = "START GAME"
+
+[node name="option" type="Button" parent="main_buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmbys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vmbys")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wdogw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uw3gq")
+text = "OPTION"
+
+[node name="exit" type="Button" parent="main_buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmbys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vmbys")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wdogw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uw3gq")
+text = "EXIT"
+
+[node name="options" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -49.0
+offset_right = 226.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "OPTIONS"
+
+[node name="exit" type="Button" parent="options"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 239.0
+offset_right = 362.0
+offset_bottom = 297.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmbys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vmbys")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wdogw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uw3gq")
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = -87.0
+offset_right = 153.5
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="options/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label2" type="Label" parent="options/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Music Volume"
+
+[node name="MusicControl" type="HSlider" parent="options/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_wdogw")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_uw3gq")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_bx5kc")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_bx5kc")
+audio_bus_name = "Music"
+
+[node name="FullScreen" type="CheckButton" parent="options/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+text = "Full Screen"
+script = ExtResource("4_r7yfp")
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uw3gq")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="main_buttons/start_game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="main_buttons/option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="main_buttons/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="options/exit" to="." method="_on_back_pressed"]
+[connection signal="changed" from="options/VBoxContainer/HBoxContainer/MusicControl" to="options/VBoxContainer/HBoxContainer/MusicControl" method="_on_changed"]
+[connection signal="value_changed" from="options/VBoxContainer/HBoxContainer/MusicControl" to="options/VBoxContainer/HBoxContainer/MusicControl" method="_on_value_changed"]
+[connection signal="toggled" from="options/VBoxContainer/FullScreen" to="options/VBoxContainer/FullScreen" method="_on_toggled"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://d275h5cxq5jbs"]
+
+[ext_resource type="Script" uid="uid://ct7c2w6j1nbka" path="res://scripts/dialogue.gd" id="1_3lnkt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3lnkt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cmu2n"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3lnkt")
+metadata/_edit_group_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -59.0
+offset_top = -58.0
+offset_right = 58.0
+offset_bottom = -16.0
+texture = SubResource("CanvasTexture_3lnkt")
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 25.0
+offset_right = 76.0
+offset_bottom = 43.0
+rotation = 0.785398
+pivot_offset = Vector2(2, 0)
+texture = SubResource("CanvasTexture_cmu2n")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 0.999996
+offset_right = 291.0
+offset_bottom = 23.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 388.0
+offset_bottom = 117.0
+scale = Vector2(0.3, 0.3)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Chatting...."
